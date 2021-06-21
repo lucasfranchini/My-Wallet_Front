@@ -11,7 +11,7 @@ export default function Login(){
                 <form onSubmit={login}>
                     <input/>
                     <input/>
-                    <Button/>
+                    <button>Entrar</button>
                 </form>
                 <span>Primeira vez? Cadastre-se!</span>
         </Body>
