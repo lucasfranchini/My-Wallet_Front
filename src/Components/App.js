@@ -9,7 +9,7 @@ function App() {
         <GlobalStyle/>
         <Switch>
           <Route path="/" exact>
-
+            <input placeholder="ola"></input>
           </Route>
           <Route path="/register" exact>
 
