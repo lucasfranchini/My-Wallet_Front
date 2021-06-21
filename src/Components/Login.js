@@ -9,11 +9,11 @@ export default function Login(){
         <Body>
             <Title>MyWallet</Title>
                 <form onSubmit={login}>
-                    <input/>
-                    <input/>
-                    <button>Entrar</button>
+                    <input type="email" placeholder="E-mail"/>
+                    <input type="password" placeholder="senha"/>
+                    <button type="submit">Entrar</button>
                 </form>
-                <span>Primeira vez? Cadastre-se!</span>
+                <Span>Primeira vez? Cadastre-se!</Span>
         </Body>
     );
 }
@@ -34,6 +34,9 @@ const Title = styled.h1`
     line-height: 51px;
 `
 
-const Button = styled.button`
+const Span = styled.span`
+    color:#fff;
+    font-size: 15px;
+    margin-top: 36px;
 
 `

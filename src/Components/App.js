@@ -5,7 +5,6 @@ import "../styles/reset.css";
 
 function App() {
   return (
-    <div className="App">
       <BrowserRouter>
         <GlobalStyle/>
         <Switch>
@@ -26,7 +25,6 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
   );
 }
 
