@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 export default function Login(){
     
     function login(e){
@@ -13,7 +14,7 @@ export default function Login(){
                     <input type="password" placeholder="senha"/>
                     <button type="submit">Entrar</button>
                 </form>
-                <Span>Primeira vez? Cadastre-se!</Span>
+                <Link to="/Register">Primeira vez? Cadastre-se!</Link>
         </Body>
     );
 }
@@ -25,6 +26,11 @@ const Body = styled.div`
     justify-content: center;
     width: 100%;
     height: 100vh;
+    a{
+        color:#fff;
+        font-size: 15px;
+        margin-top: 36px;
+    }
 `
 
 const Title = styled.h1`
@@ -32,11 +38,4 @@ const Title = styled.h1`
     color:#fff;
     font-size: 32px;
     line-height: 51px;
-`
-
-const Span = styled.span`
-    color:#fff;
-    font-size: 15px;
-    margin-top: 36px;
-
 `
