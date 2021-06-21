@@ -38,4 +38,5 @@ const Title = styled.h1`
     color:#fff;
     font-size: 32px;
     line-height: 51px;
+    margin-bottom: 24px;
 `
