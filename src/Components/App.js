@@ -1,5 +1,6 @@
 import {BrowserRouter,Switch,Route} from "react-router-dom";
 import GlobalStyle from "../styles/GlobalStyle";
+import Login from "./Login";
 import "../styles/reset.css";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
         <GlobalStyle/>
         <Switch>
           <Route path="/" exact>
-            <input placeholder="ola"></input>
+            <Login/>
           </Route>
           <Route path="/register" exact>
 

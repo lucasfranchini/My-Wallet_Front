@@ -13,6 +13,7 @@ input{
     padding: 0 15px;
     border-radius: 5px;
     border:none;
+    margin-bottom: 13px;
     &::placeholder{
         color:#000;
         font-size: 20px;
