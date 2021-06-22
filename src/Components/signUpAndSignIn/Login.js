@@ -1,18 +1,28 @@
 import { Body,Title } from "./SignStyle";
 import Input from "../../styles/Input";
 import Button from "../../styles/Button";
-import {Link} from "react-router-dom";
-import { useState } from "react";
+import {Link, useHistory} from "react-router-dom";
+import { useContext, useState } from "react";
+import UserContext from "../../Context/UserContext";
+import axios from "axios";
 export default function Login(){
-
+    const {setUser} =useContext(UserContext)
     const [body,setBody] = useState({
         email: "" ,
         password: ""
     });
     const [load,setLoad] = useState(false);
+    const history = useHistory();
     
     function login(e){
         e.preventDefault();
+        setLoad(true);
+        const promise = axios.post('http://localhost:4000/sign-in',body);
+        promise.then(answer=>{
+            setUser(answer.data);
+            history.push('/transactions')
+        });
+        promise.catch(()=>alert('Houve um erro ao logar, tente novamente'))
     }
     
     return (
