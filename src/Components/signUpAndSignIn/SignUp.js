@@ -12,7 +12,7 @@ export default function SignUp(){
         password: "",
         confirmPassword: ""
     })
-    const [load,setLoad] = useState(false)
+    const [load,setLoad] = useState(false);
 
     return (
         <Body>
@@ -22,7 +22,7 @@ export default function SignUp(){
                 <Input type="email" placeholder="E-mail" value={body.email} onChange={e=>setBody({...body,email:e.target.value})} disabled={load}/>
                 <Input type="password" placeholder="Senha" value={body.password} onChange={e=>setBody({...body,password:e.target.value})} disabled={load}/>
                 <Input type="password" placeholder="Confirme a senha" value={body.confirmPassword} onChange={e=>setBody({...body,confirmPassword:e.target.value})} disabled={load}/>
-                <Button disabled={load}>Registrar</Button>
+                <Button type="submit" disabled={load}>Registrar</Button>
             </form>
             <Link to="/">Já tem uma conta? Entre agora!</Link>
         </Body>

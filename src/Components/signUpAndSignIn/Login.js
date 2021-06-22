@@ -9,7 +9,7 @@ export default function Login(){
         email: "" ,
         password: ""
     });
-    const [load,setLoad] = useState(false)
+    const [load,setLoad] = useState(false);
     
     function login(e){
         e.preventDefault();
@@ -19,8 +19,8 @@ export default function Login(){
         <Body>
             <Title>MyWallet</Title>
                 <form onSubmit={login}>
-                    <Input type="email" placeholder="E-mail" value={body.email} onChange={e=>setBody({...body,email: e.target.value})}/>
-                    <Input type="password" placeholder="senha" value={body.password} onChange={e=>setBody({...body,password: e.target.value})}/>
+                    <Input type="email" placeholder="E-mail" value={body.email} onChange={e=>setBody({...body,email: e.target.value})} disabled={load}/>
+                    <Input type="password" placeholder="senha" value={body.password} onChange={e=>setBody({...body,password: e.target.value})} disabled={load}/>
                     <Button type="submit">Entrar</Button>
                 </form>
                 <Link to="/Register">Primeira vez? Cadastre-se!</Link>
