@@ -1,7 +1,8 @@
 import {BrowserRouter,Switch,Route} from "react-router-dom";
 import GlobalStyle from "../styles/GlobalStyle";
-import Login from "./Login";
+import Login from "./signUpAndSignIn/Login";
 import "../styles/reset.css";
+import SignUp from "./signUpAndSignIn/SignUp";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
             <Login/>
           </Route>
           <Route path="/register" exact>
-
+            <SignUp/>
           </Route>
           <Route path="/transactions" exact>
 
