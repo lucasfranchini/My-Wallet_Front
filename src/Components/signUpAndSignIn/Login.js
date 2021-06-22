@@ -20,7 +20,9 @@ export default function Login(){
         const promise = axios.post('http://localhost:4000/sign-in',body);
         promise.then(answer=>{
             setUser(answer.data);
+            localStorage.setItem('user', JSON.stringify(answer.data));
             history.push('/transactions')
+
         });
         promise.catch(()=>{
             alert('Usuario ou senha incorreta, tente novamente');
