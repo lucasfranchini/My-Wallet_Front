@@ -14,10 +14,14 @@ export default function SignUp(){
     })
     const [load,setLoad] = useState(false);
 
+    function register(e){
+        e.preventDefault();
+    }
+
     return (
         <Body>
             <Title>MyWallet</Title>
-            <form>
+            <form onSubmit={register}>
                 <Input type="text" placeholder="Nome" value={body.name} onChange={e=>setBody({...body,name:e.target.value})} disabled={load}/>
                 <Input type="email" placeholder="E-mail" value={body.email} onChange={e=>setBody({...body,email:e.target.value})} disabled={load}/>
                 <Input type="password" placeholder="Senha" value={body.password} onChange={e=>setBody({...body,password:e.target.value})} disabled={load}/>
