@@ -22,7 +22,10 @@ export default function Login(){
             setUser(answer.data);
             history.push('/transactions')
         });
-        promise.catch(()=>alert('Houve um erro ao logar, tente novamente'))
+        promise.catch(()=>{
+            alert('Usuario ou senha incorreta, tente novamente');
+            setLoad(false)
+        })
     }
     
     return (
