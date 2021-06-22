@@ -8,7 +8,7 @@ import { useState } from "react";
 import Transactions from "./Transactions/Transactions";
 
 function App() {
-  const [user,setUser]=useState(JSON.parse(localStorage.user))
+  const [user,setUser]=useState(JSON.parse(localStorage.getItem('user')))
   return (
     <BrowserRouter>
       <GlobalStyle />

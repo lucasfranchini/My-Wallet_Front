@@ -2,17 +2,24 @@ import { Body,Title } from "./SignStyle";
 import Input from "../../styles/Input";
 import Button from "../../styles/Button";
 import {Link, useHistory} from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../../Context/UserContext";
 import axios from "axios";
 export default function Login(){
-    const {setUser} =useContext(UserContext)
+    const {user,setUser} =useContext(UserContext);
+    const history = useHistory();
+    useEffect(()=>{
+        if(user){
+            history.push('/transactions')
+        }
+    },[history,user])
+    
     const [body,setBody] = useState({
         email: "" ,
         password: ""
     });
     const [load,setLoad] = useState(false);
-    const history = useHistory();
+    
     
     function login(e){
         e.preventDefault();
