@@ -1,22 +1,27 @@
-import {BrowserRouter,Switch,Route} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import GlobalStyle from "../styles/GlobalStyle";
 import Login from "./signUpAndSignIn/Login";
 import "../styles/reset.css";
 import SignUp from "./signUpAndSignIn/SignUp";
+import UserContext from "../Context/UserContext";
+import { useState } from "react";
+import Transactions from "./Transactions/Transactions";
 
 function App() {
+  const [user,setUser]=useState(null)
   return (
-      <BrowserRouter>
-        <GlobalStyle/>
+    <BrowserRouter>
+      <GlobalStyle />
+      <UserContext.Provider value={{user,setUser}}>
         <Switch>
           <Route path="/" exact>
-            <Login/>
+            <Login />
           </Route>
           <Route path="/register" exact>
-            <SignUp/>
+            <SignUp />
           </Route>
           <Route path="/transactions" exact>
-
+            <Transactions/>
           </Route>
           <Route path="/new-entry" exact>
 
@@ -25,7 +30,8 @@ function App() {
 
           </Route>
         </Switch>
-      </BrowserRouter>
+      </UserContext.Provider>
+    </BrowserRouter>
   );
 }
 

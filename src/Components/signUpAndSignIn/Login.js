@@ -21,7 +21,7 @@ export default function Login(){
                 <form onSubmit={login}>
                     <Input type="email" placeholder="E-mail" value={body.email} onChange={e=>setBody({...body,email: e.target.value})} disabled={load}/>
                     <Input type="password" placeholder="senha" value={body.password} onChange={e=>setBody({...body,password: e.target.value})} disabled={load}/>
-                    <Button type="submit">Entrar</Button>
+                    <Button type="submit" disabled={load}>Entrar</Button>
                 </form>
                 <Link to="/Register">Primeira vez? Cadastre-se!</Link>
         </Body>
