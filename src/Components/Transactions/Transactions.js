@@ -15,6 +15,10 @@ export default function Transactions(){
                 <IoExitOutline onClick={()=>history.push('/')}/>
             </Header>
             <Records/>
+            <Buttons>
+                <button>Nova entrada</button>
+                <button>Nova saida</button>
+            </Buttons>
         </Body>
     )
 }
@@ -22,7 +26,7 @@ export default function Transactions(){
 const Body=styled.div`
     width: 100%;
     height: 100vh;
-    padding:25px;
+    padding:20px 25px;
 `
 const Header = styled.div`
     margin-bottom: 25px;
@@ -32,4 +36,16 @@ const Header = styled.div`
     color: #fff;
     font-weight: 700;
     font-size: 26px;
+`
+const Buttons = styled.div`
+    display: flex;
+    justify-content: space-between;
+    button{
+        width: calc(50% - 7.5px);
+        height: 17vh;
+        background: #A328D6;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+    }
 `

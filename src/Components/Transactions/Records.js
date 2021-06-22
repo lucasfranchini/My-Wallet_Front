@@ -29,4 +29,5 @@ const Body = styled.div`
     span{
         width: 75%;
     }
+    margin-bottom: 13px;
 `
