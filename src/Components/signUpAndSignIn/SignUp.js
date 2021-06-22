@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Body,Title } from "./SignStyle";
 import Input from "../../styles/Input";
 import Button from "../../styles/Button";
-import { Link } from "react-router-dom";
-
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 export default function SignUp(){
     const [body,setBody] = useState({
@@ -13,9 +13,28 @@ export default function SignUp(){
         confirmPassword: ""
     })
     const [load,setLoad] = useState(false);
+    const history = useHistory();
 
     function register(e){
         e.preventDefault();
+        setLoad(true);
+        if(body.password!==body.confirmPassword){
+            alert('password must be the same');
+            setLoad(false);
+        }
+        else{
+            delete body.confirmPassword;
+            const promise = axios.post('http://localhost:4000/sign-up',body);
+            promise.then(answer=>{
+                history.push('/');
+            })
+            promise.catch(()=>{
+                alert('houve algum erro ao se cadastrar,tente novamente');
+                setLoad(false);
+            })
+        }
+        
+        
     }
 
     return (
