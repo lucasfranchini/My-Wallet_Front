@@ -26,7 +26,10 @@ export default function Transactions(){
         <Body>
             <Header>
                 <h1>Ola, {user?.name}</h1>
-                <IoExitOutline onClick={()=>history.push('/')}/>
+                <IoExitOutline onClick={()=>{
+                    localStorage.clear();
+                    history.push('/');
+                }}/>
             </Header>
             <Records records={records}/>
             <Buttons>
