@@ -21,7 +21,7 @@ const Body = styled.div`
     height: 20px;
     display: flex;
     justify-content: space-between;
-    flex-shrink: 0;
+    margin-bottom: 5px;
     div{
         display: flex;
         overflow: hidden;

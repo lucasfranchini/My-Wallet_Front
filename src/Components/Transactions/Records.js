@@ -6,11 +6,11 @@ export default function Records({records}){
     const total = totalSum(records);
     return(
         <Body records={records}>
-            <List>
+            <List records={records}>
             {
                 records ?
                 records.map(r=><Record key={r.id} record={r}/>):
-                <ZeroTransactions>Não há registros de entrada ou saída</ZeroTransactions>
+                <span>Não há registros de entrada ou saída</span>
             }
             </List>
             {records && <Total total={total}><span>SALDO</span>{(total/100).toFixed(2).replace('.',',')}</Total>}
@@ -35,13 +35,8 @@ const Body = styled.div`
     margin-bottom: 13px;
 `
 const List = styled.ul`
-    width: 100%;
+    width: ${props=>props.records? '100%':'75%'};
     overflow-y: scroll;
-`
-const ZeroTransactions = styled.div`
-        width: 75%;
-        margin: 0 auto;
-
 `
 const Total = styled.div`
     color:${props=>props.total < 0 ? '#c70000':'#03AC00'};
