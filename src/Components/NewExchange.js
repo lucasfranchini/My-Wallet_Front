@@ -13,9 +13,10 @@ export default function NewExchange(){
     const [exchange,setExchange] = useState({
         value:"",
         description:"",
-        type: local.pathname==='/new-entry' ? 'Income': 'Expense'
+        type: local.pathname==='/new-entry' ? 'income': 'expense'
     })
-    function sendExchange(){
+    function sendExchange(e){
+        e.preventDefault();
         exchange.value=exchange.value.replace(',','').replace('.','');
         if(!Number(exchange.value)){
             alert('O valor deve ser um numero');

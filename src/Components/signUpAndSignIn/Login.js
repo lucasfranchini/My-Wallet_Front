@@ -6,13 +6,17 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../../Context/UserContext";
 import axios from "axios";
 export default function Login(){
-    const {user,setUser} =useContext(UserContext);
+    const {setUser} =useContext(UserContext);
+    const user = localStorage.getItem('user')
     const history = useHistory();
     useEffect(()=>{
         if(user){
             history.push('/transactions')
         }
-    },[history,user])
+        else{
+            setUser(null)
+        }
+    },[history,user,setUser])
     
     const [body,setBody] = useState({
         email: "" ,

@@ -11,6 +11,8 @@ export default function Transactions(){
     const {user} = useContext(UserContext);
     const history = useHistory();
     const [records,setRecords] = useState(null);
+
+    
     
     useEffect(()=>{
         const headers = {headers:{Authorization: `Bearer ${user.token}`}}
@@ -23,14 +25,21 @@ export default function Transactions(){
         })
     },[user.token])
 
+    function signOut(){
+        const headers = {headers:{Authorization: `Bearer ${user.token}`}}
+        const promise = axios.post('http://localhost:4000/sign-out',{},headers)
+        promise.then(()=>{
+            localStorage.removeItem('user');
+            history.push('/');
+        })
+        promise.catch(()=>alert('Houve um erro ao tentar sair'))
+    }
+
     return(
         <Body>
             <Header>
                 <h1>Ola, {user?.name}</h1>
-                <IoExitOutline onClick={()=>{
-                    localStorage.removeItem('user');
-                    history.push('/');
-                }}/>
+                <IoExitOutline onClick={signOut}/>
             </Header>
             <Records records={records}/>
             <Buttons>
