@@ -6,6 +6,7 @@ import SignUp from "./signUpAndSignIn/SignUp";
 import UserContext from "../Context/UserContext";
 import { useState } from "react";
 import Transactions from "./Transactions/Transactions";
+import NewExchange from "./NewExchange";
 
 function App() {
   const [user,setUser]=useState(JSON.parse(localStorage.getItem('user')))
@@ -24,10 +25,10 @@ function App() {
             <Transactions/>
           </Route>
           <Route path="/new-entry" exact>
-
+            <NewExchange/>
           </Route>
           <Route path="/new-expense" exact>
-
+            <NewExchange/>
           </Route>
         </Switch>
       </UserContext.Provider>

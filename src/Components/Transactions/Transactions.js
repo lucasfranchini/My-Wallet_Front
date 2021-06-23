@@ -34,11 +34,11 @@ export default function Transactions(){
             </Header>
             <Records records={records}/>
             <Buttons>
-                <Link to='/'>
+                <Link to='/new-entry'>
                     <OutlinePlus/>
                     <span>Nova entrada</span>
                 </Link>
-                <Link to='/'>
+                <Link to='/new-expense'>
                     <OutlineMinus/>
                     <span>Nova saida</span>
                 </Link>
