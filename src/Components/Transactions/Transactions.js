@@ -1,13 +1,27 @@
 import styled from "styled-components";
 import { IoExitOutline } from "react-icons/io5";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../../Context/UserContext";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Records from "./Records";
+import { HiOutlineMinusCircle,HiOutlinePlusCircle } from "react-icons/hi";
+import axios from "axios";
 
 export default function Transactions(){
-    const {user,setUser} = useContext(UserContext);
+    const {user} = useContext(UserContext);
     const history = useHistory();
+    const [records,setRecords] = useState(null);
+    useEffect(()=>{
+        const headers = {headers:{Authorization: `Bearer ${user.token}`}}
+        const promise = axios.get('http://localhost:4000/transactions',headers);
+        promise.then(answer=>{
+            setRecords(answer.data);
+        })
+        promise.catch(()=>{
+            alert('houve um erro ao buscar seus registros, tente entrar novamente na pagina');
+        })
+    },[user.token])
+    console.log(records)
     return(
         <Body>
             <Header>
@@ -16,8 +30,14 @@ export default function Transactions(){
             </Header>
             <Records/>
             <Buttons>
-                <button>Nova entrada</button>
-                <button>Nova saida</button>
+                <Link to='/'>
+                    <OutlinePlus/>
+                    <span>Nova entrada</span>
+                </Link>
+                <Link to='/'>
+                    <OutlineMinus/>
+                    <span>Nova saida</span>
+                </Link>
             </Buttons>
         </Body>
     )
@@ -40,12 +60,33 @@ const Header = styled.div`
 const Buttons = styled.div`
     display: flex;
     justify-content: space-between;
-    button{
+    a{
         width: calc(50% - 7.5px);
         height: 17vh;
         background: #A328D6;
         border-radius: 5px;
         border: none;
         color: #fff;
+        position: relative;
+        font-weight: 700;
+        span{
+            position: absolute;
+            bottom:10px;
+            left:10px;
+            width: 50%;
+            font-size: 17px;
+            line-height: 20px;
+            text-align: start;
+        }
     }
+`
+const OutlinePlus = styled(HiOutlinePlusCircle)`
+    position: absolute;
+    top:10px;
+    left: 10px;
+`
+const OutlineMinus = styled(HiOutlineMinusCircle)`
+    position: absolute;
+    top:10px;
+    left: 10px;
 `

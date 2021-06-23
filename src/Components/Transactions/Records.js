@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Records(){
-    const [records,setRecords] = useState(null)
+export default function Records({records}){
+    
     return(
         <Body records={null}>
             {
