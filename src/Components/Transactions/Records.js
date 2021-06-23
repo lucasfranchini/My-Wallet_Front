@@ -1,13 +1,13 @@
-import { useState } from "react";
+import Record from "./Record"
 import styled from "styled-components";
 
 export default function Records({records}){
     
     return(
-        <Body records={null}>
+        <Body records={records}>
             {
                 records ?
-                "":
+                records.map(r=><Record key={r.id} record={r}/>):
                 <span>Não há registros de entrada ou saída</span>
             }
         </Body>
@@ -26,6 +26,7 @@ const Body = styled.div`
     line-height: 23px;
     text-align: center;
     color: #868686;
+    padding-top: 20px;
     span{
         width: 75%;
     }

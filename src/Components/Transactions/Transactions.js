@@ -28,7 +28,7 @@ export default function Transactions(){
                 <h1>Ola, {user?.name}</h1>
                 <IoExitOutline onClick={()=>history.push('/')}/>
             </Header>
-            <Records/>
+            <Records records={records}/>
             <Buttons>
                 <Link to='/'>
                     <OutlinePlus/>
