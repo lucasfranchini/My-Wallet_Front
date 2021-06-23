@@ -11,6 +11,7 @@ export default function Transactions(){
     const {user} = useContext(UserContext);
     const history = useHistory();
     const [records,setRecords] = useState(null);
+    
     useEffect(()=>{
         const headers = {headers:{Authorization: `Bearer ${user.token}`}}
         const promise = axios.get('http://localhost:4000/transactions',headers);
@@ -21,13 +22,13 @@ export default function Transactions(){
             alert('houve um erro ao buscar seus registros, tente entrar novamente na pagina');
         })
     },[user.token])
-    console.log(records)
+
     return(
         <Body>
             <Header>
                 <h1>Ola, {user?.name}</h1>
                 <IoExitOutline onClick={()=>{
-                    localStorage.clear();
+                    localStorage.removeItem('user');
                     history.push('/');
                 }}/>
             </Header>
