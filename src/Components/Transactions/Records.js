@@ -8,12 +8,12 @@ export default function Records({records}){
         <Body records={records}>
             <List records={records}>
             {
-                records ?
+                records?.length > 0 ?
                 records.map(r=><Record key={r.id} record={r}/>):
                 <span>Não há registros de entrada ou saída</span>
             }
             </List>
-            {records && <Total total={total}><span>SALDO</span>{(total/100).toFixed(2).replace('.',',')}</Total>}
+            {records?.length > 0 && <Total total={total}><span>SALDO</span>{(total/100).toFixed(2).replace('.',',')}</Total>}
         </Body>
     );
 }
@@ -24,7 +24,7 @@ const Body = styled.div`
     height: 67vh;
     display: flex;
     flex-direction: column;
-    justify-content: ${props=>props.records?'flex-start':'center'};
+    justify-content: ${props=>props.records?.length > 0?'flex-start':'center'};
     align-items: center;
     line-height: 23px;
     text-align: center;
@@ -35,7 +35,7 @@ const Body = styled.div`
     margin-bottom: 13px;
 `
 const List = styled.ul`
-    width: ${props=>props.records? '100%':'75%'};
+    width: ${props=>props.records?.length > 0? '100%':'75%'};
     overflow-y: scroll;
 `
 const Total = styled.div`

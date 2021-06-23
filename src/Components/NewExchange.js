@@ -17,6 +17,10 @@ export default function NewExchange(){
     })
     function sendExchange(e){
         e.preventDefault();
+        if(!exchange.value  && !exchange.description) {
+            history.push('/transactions')
+            return
+        }
         exchange.value=exchange.value.replace(',','').replace('.','');
         if(!Number(exchange.value)){
             alert('O valor deve ser um numero');
