@@ -5,6 +5,7 @@ import Button from "../styles/Button";
 import axios from "axios";
 import { useContext, useState } from "react";
 import UserContext from "../Context/UserContext";
+import InputMask from "react-input-mask";
 
 export default function NewExchange(){
     const local = useLocation();
@@ -36,24 +37,33 @@ export default function NewExchange(){
         })
     }
     return(
-        <Body>
+        <>
             <Title>Nova {local.pathname==='/new-entry' ? 'Entrada': 'Saida'}</Title>
             <form onSubmit={sendExchange}>
-                <Input placeholder="Valor" value={exchange.value} onChange={e=>setExchange({...exchange,value:e.target.value})}/>
+                <InputMaskStyled placeholder="Valor" value={exchange.value} onChange={e=>setExchange({...exchange,value:e.target.value})}  mask="99,99" maskChar=""/>
                 <Input placeholder="Descrição" value={exchange.description} onChange={e=>setExchange({...exchange,description:e.target.value})}/>
                 <Button type="submit">Salvar {local.pathname==='/new-entry' ? 'Entrada': 'Saida'}</Button>
             </form>
-        </Body>
+        </>
     );
 }
-
-const Body = styled.div`
-    
-`
 const Title = styled.h1`
     color: #fff;
     font-weight: 700;
     margin: 25px;
     font-size: 26px;
     line-height: 100%;
+`
+const InputMaskStyled = styled(InputMask)`
+height: 58px;
+    width: calc(100% - 50px);
+    margin: 0 25px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border:none;
+    margin-bottom: 13px;
+    &::placeholder{
+        color:#000;
+        font-size: 20px;
+    }
 `
