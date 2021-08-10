@@ -41,7 +41,7 @@ export default function NewExchange(){
         <>
             <Title>Nova {local.pathname==='/new-entry' ? 'Entrada': 'Saida'}</Title>
             <form onSubmit={sendExchange}>
-                <InputMaskStyled placeholder="Valor" value={exchange.value} onValueChange={(value)=>setExchange({...exchange,value})} fixedDecimalLength={2}/>
+                <InputMaskStyled placeholder="Valor" value={exchange.value} onValueChange={(value)=>setExchange({...exchange,value})} />
                 <Input placeholder="Descrição" value={exchange.description} onChange={e=>setExchange({...exchange,description:e.target.value})}/>
                 <Button type="submit">Salvar {local.pathname==='/new-entry' ? 'Entrada': 'Saida'}</Button>
             </form>
