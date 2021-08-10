@@ -31,8 +31,8 @@ The following tools and frameworks were used in the construction of the project:
 ## How to run
 
 1. Clone this repository
-2. Clone the back-end repository at 
-3. Follow instructions to run back-end at 
+2. Clone the back-end repository at https://github.com/lucasfranchini/MyWalletBack
+3. Follow instructions to run back-end at https://github.com/lucasfranchini/MyWalletBack
 4. Install dependencies
 ```bash
 npm i
@@ -45,4 +45,4 @@ npm start
 ```bash
 npm run build
 ```
-7. Finally access http://localho
+7. Finally access http://localhost:3000 on your browser 
