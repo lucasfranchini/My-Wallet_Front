@@ -9,11 +9,11 @@ import Transactions from "./Transactions/Transactions";
 import NewExchange from "./NewExchange";
 
 function App() {
-  const [user,setUser]=useState(JSON.parse(localStorage.getItem('user')))
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <UserContext.Provider value={{user,setUser}}>
+      <UserContext.Provider value={{ user, setUser }}>
         <Switch>
           <Route path="/" exact>
             <Login />
@@ -22,13 +22,13 @@ function App() {
             <SignUp />
           </Route>
           <Route path="/transactions" exact>
-            <Transactions/>
+            <Transactions />
           </Route>
           <Route path="/new-entry" exact>
-            <NewExchange/>
+            <NewExchange />
           </Route>
           <Route path="/new-expense" exact>
-            <NewExchange/>
+            <NewExchange />
           </Route>
         </Switch>
       </UserContext.Provider>
