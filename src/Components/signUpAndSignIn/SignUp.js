@@ -29,7 +29,7 @@ export default function SignUp(){
                 history.push('/');
             })
             promise.catch(()=>{
-                alert('houve algum erro ao se cadastrar,tente novamente');
+                alert('error on sign Up, please try again');
                 setLoad(false);
             })
         }
