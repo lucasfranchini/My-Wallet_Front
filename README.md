@@ -20,7 +20,9 @@ This is an web application with which lots of people can manage their own expens
 By using this app any user can learn how they've been using their money and always keep track of your balance.
 
 ## Technologies
+
 The following tools and frameworks were used in the construction of the project:<br>
+
 <p>
   <img style='margin: 5px;' src='https://img.shields.io/badge/styled-components%20-%2320232a.svg?&style=for-the-badge&color=b8679e&logo=styled-components&logoColor=%3a3a3a'>
   <img style='margin: 5px;' src='https://img.shields.io/badge/axios%20-%2320232a.svg?&style=for-the-badge&color=informational'>
@@ -34,15 +36,22 @@ The following tools and frameworks were used in the construction of the project:
 2. Clone the back-end repository at https://github.com/lucasfranchini/MyWalletBack
 3. Follow instructions to run back-end at https://github.com/lucasfranchini/MyWalletBack
 4. Install dependencies
+
 ```bash
 npm i
 ```
-5. Run the front-end with
+
+5. create a .env with your back-end url like in .env.example
+6. Run the front-end with
+
 ```bash
 npm start
 ```
-6. You can optionally build the project running
+
+7. You can optionally build the project running
+
 ```bash
 npm run build
 ```
-7. Finally access http://localhost:3000 on your browser 
+
+8. Finally access http://localhost:3000 on your browser
