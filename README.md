@@ -4,8 +4,6 @@ An easy to use financial manager. Track your revenues and expenses to learn how 
 
 <img src="./assets/mywallet.gif" />
 
-Try it out now at https://my-wallet-front-50pa0so9n-lucasfranchini.vercel.app
-
 ## About
 
 This is an web application with which lots of people can manage their own expenses and revenues. Below are the implemented features:
