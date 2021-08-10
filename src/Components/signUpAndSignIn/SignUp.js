@@ -23,7 +23,10 @@ export default function SignUp() {
       setLoad(false);
     } else {
       delete body.confirmPassword;
-      const promise = axios.post("http://localhost:4000/sign-up", body);
+      const promise = axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/sign-up`,
+        body
+      );
       promise.then((answer) => {
         history.push("/");
       });

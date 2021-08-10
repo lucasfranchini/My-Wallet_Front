@@ -26,7 +26,10 @@ export default function Login() {
   function login(e) {
     e.preventDefault();
     setLoad(true);
-    const promise = axios.post("http://localhost:4000/sign-in", body);
+    const promise = axios.post(
+      `${process.env.REACT_APP_API_BASE_URL}/sign-in`,
+      body
+    );
     promise.then((answer) => {
       setUser(answer.data);
       localStorage.setItem("user", JSON.stringify(answer.data));

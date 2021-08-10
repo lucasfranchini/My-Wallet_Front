@@ -14,7 +14,10 @@ export default function Transactions() {
 
   useEffect(() => {
     const headers = { headers: { Authorization: `Bearer ${user.token}` } };
-    const promise = axios.get("http://localhost:4000/transactions", headers);
+    const promise = axios.get(
+      `${process.env.REACT_APP_API_BASE_URL}/transactions`,
+      headers
+    );
     promise.then((answer) => {
       setRecords(answer.data);
     });
@@ -27,7 +30,11 @@ export default function Transactions() {
 
   function signOut() {
     const headers = { headers: { Authorization: `Bearer ${user.token}` } };
-    const promise = axios.post("http://localhost:4000/sign-out", {}, headers);
+    const promise = axios.post(
+      `${process.env.REACT_APP_API_BASE_URL}/sign-out`,
+      {},
+      headers
+    );
     promise.then(() => {
       localStorage.removeItem("user");
       history.push("/");
