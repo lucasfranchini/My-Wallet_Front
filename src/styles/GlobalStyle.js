@@ -7,6 +7,6 @@ body {
     font-size: 20px;
 }
 
-`
+`;
 
 export default GlobalStyle;
