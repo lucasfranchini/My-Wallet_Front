@@ -5,7 +5,6 @@ import Button from "../styles/Button";
 import axios from "axios";
 import { useContext, useState } from "react";
 import UserContext from "../Context/UserContext";
-import InputMask from "react-input-mask";
 import CurrencyInput from 'react-currency-input-field';
 
 export default function NewExchange(){
